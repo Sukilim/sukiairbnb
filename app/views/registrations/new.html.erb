@@ -1,0 +1,57 @@
+
+<h1>Sign Up</h1>
+
+<% if @user && @user.errors.present? %>
+  <ul>
+    <% @user.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user, url: registration_path do |f| %>
+  <div>
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name %>
+	</div>
+
+	<div>
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name %>
+	</div>
+
+	<div>
+		<%= f.label :phone_number%>
+		<%= f.text_field :phone_number %>
+	</div>
+
+	<div>
+		<%= f.label :address %>
+		<%= f.text_area :address %>
+	</div> 
+
+	<div>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+
+	<div>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+		* Must be at least 8 characters<br>
+	</div>
+
+	<div>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+
+	<div>
+  <%= f.submit "Sign Up"%>
+	</div>
+<% end %>
+
+<%= link_to "Login", new_login_path %>
+
+
+
